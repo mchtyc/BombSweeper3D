@@ -108,7 +108,7 @@ public class GM_Input : MonoBehaviour
             }
         }
     }
-
+    
     void TwoFingers()
     {
         Touch t1 = Input.touches[0];

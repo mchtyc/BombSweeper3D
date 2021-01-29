@@ -68,6 +68,7 @@
     <Compile Include="Assets\GM_Boosters.cs" />
     <Compile Include="Assets\Scripts\Cubic.cs" />
     <Compile Include="Assets\Scripts\DataFlow.cs" />
+    <Compile Include="Assets\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GM_Board.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GM_Enums.cs" />
