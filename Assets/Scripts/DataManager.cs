@@ -6,32 +6,64 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-	public static void SaveToLocal()
+	public GameData gameData;
+
+	void Start()
 	{
-		//BinaryFormatter bf = new BinaryFormatter();
-		//FileStream file = File.Create(Application.persistentDataPath + "/gamePlatform.my");
-		//bf.Serialize(file, gameDatas);
-		//file.Close();
+		LoadFromLocal();
 	}
 
-	public static void LoadFromLocal()
+	public void SaveToLocal()
 	{
-		if (File.Exists(Application.persistentDataPath + "/gamePlatform.my"))
+		GameDataClone dataClone = CloneFromGameData();
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create("Assets/Resources/gameData.data");
+		bf.Serialize(file, dataClone);
+		file.Close();
+	}
+
+	public void LoadFromLocal()
+	{
+		if (File.Exists("Assets/Resources/gameData.data"))
 		{
-			//BinaryFormatter bf = new BinaryFormatter();
-			//FileStream file = File.Open(Application.persistentDataPath + "/gamePlatform.my", FileMode.Open);
-			//gameDatas = (Datas)bf.Deserialize(file);
-			//file.Close();
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open("Assets/Resources/gameData.data", FileMode.Open);
+			GameDataClone dataClone = (GameDataClone)bf.Deserialize(file);
+			file.Close();
+			LoadFromClone(dataClone);
 		}
-		//else
-		//{
-		//	//firstDataLoad();
-		//}
-		//if (!everRead)
-		//{
-		//	everRead = true;
-		//}
-		//openLevels();
+		else
+		{
+			SaveToLocal();
+		}
+	}
+
+	GameDataClone CloneFromGameData()
+	{
+		GameDataClone dataClone = new GameDataClone();
+
+		dataClone.lastOpenedWorld = gameData.lastOpenedWorld;
+		dataClone.boosterCount = gameData.boosterCount;
+
+		dataClone.lastOpenedLevels = new int[gameData.lastOpenedLevels.Length];
+
+		for (int i = 0; i < gameData.lastOpenedLevels.Length; i++)
+		{
+			dataClone.lastOpenedLevels[i] = gameData.lastOpenedLevels[i];
+		}
+
+		return dataClone;
+	}
+
+	void LoadFromClone(GameDataClone dataClone)
+	{
+		gameData.lastOpenedWorld = dataClone.lastOpenedWorld;
+		gameData.boosterCount = dataClone.boosterCount;
+
+		for (int i = 0; i < gameData.lastOpenedLevels.Length; i++)
+		{
+			gameData.lastOpenedLevels[i] = dataClone.lastOpenedLevels[i];
+		}
 	}
 
 	void OnDestroy()
@@ -202,22 +234,20 @@ public class DataManager : MonoBehaviour
 	//	}
 	//}
 
+	//public static void firstDataLoad()
+	//{
+	//	gameDatas = new Datas();
+	//	gameDatas.RewardPoints = 0f;
+	//	gameDatas.BallType = 1;
+	//	gameDatas.LastLevel = 1;                    //Yayınlanmadan önce defaultlar değişecek
+	//	gameDatas.Diamond = 100;
+	//	gameDatas.Sound = true;
+	//	gameDatas.AddBall = gameDatas.Quake = gameDatas.AddLaser = gameDatas.Remove = gameDatas.Unbreakable = 3; //Yayınlanmadan önce 3e düşecek
+	//																											 // 0: Owned    1: watch an ad    2: buy it with actual currency    3: buy it with diamond
+	//	gameDatas.BallStates = new int[16] { 0, 1, 3, 2, 1, 3, 1, 2, 2, 3, 2, 2, 2, 3, 3, 2 };
+	//}
 
-
-	////public static void firstDataLoad()
-	////{
-	////	gameDatas = new Datas();
-	////	gameDatas.RewardPoints = 0f;
-	////	gameDatas.BallType = 1;
-	////	gameDatas.LastLevel = 1;                    //Yayınlanmadan önce defaultlar değişecek
-	////	gameDatas.Diamond = 100;
-	////	gameDatas.Sound = true;
-	////	gameDatas.AddBall = gameDatas.Quake = gameDatas.AddLaser = gameDatas.Remove = gameDatas.Unbreakable = 3; //Yayınlanmadan önce 3e düşecek
-	////																											 // 0: Owned    1: watch an ad    2: buy it with actual currency    3: buy it with diamond
-	////	gameDatas.BallStates = new int[16] { 0, 1, 3, 2, 1, 3, 1, 2, 2, 3, 2, 2, 2, 3, 3, 2 };
-	////}
-
-	////	public void DeleteFile(){
-	////		File.Delete (Application.persistentDataPath + "/gamePlatform.my");		// Bu kod değil ama bağlı olduğu Button yayınlanmadan önce silinecek
-	////	}
+	//	public void DeleteFile(){
+	//		File.Delete (Application.persistentDataPath + "/gamePlatform.my");		// Bu kod değil ama bağlı olduğu Button yayınlanmadan önce silinecek
+	//	}
 }

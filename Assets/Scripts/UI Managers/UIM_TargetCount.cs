@@ -19,7 +19,7 @@ public class UIM_TargetCount : MonoBehaviour
 
         amount = gameData.targetCount;
         WriteTargetCount();
-        targetImage.sprite = gameData.target;
+        targetImage.sprite = gameData.targetSprite;
     }
 
     private void OnDisable()

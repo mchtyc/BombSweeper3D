@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public TextMesh worldNameText;
 
     public GameData gameData;
-    public Worlds worlds;
+    public Database gameDatabase;
 
     // Start is called before the first frame update
     void Awake()
@@ -39,46 +39,45 @@ public class MenuManager : MonoBehaviour
     {
         int i = 0;
 
-        foreach (World w in worlds.worlds)
+        foreach (World world in gameDatabase.Worlds)
         {
             Transform parent = Cubics.GetChild(i);
-            if (w.open)
+            if (gameData.lastOpenedWorld > i)
             {
-                Cubic cubic = Instantiate(w.WorldPrefab, parent).GetComponent<Cubic>();
-                cubic.InitData(w.id, w.levelCount, w.open);
+                Cubic cubic = Instantiate(world.MenuPrefabOpened, parent).GetComponent<Cubic>();
+                cubic.InitData(world.ID, world.Levels.Length, true);
             }
             else
             {
-                GameObject closed = Instantiate(w.closedPrefab, parent);
+                GameObject closed = Instantiate(world.MenuPrefabClosed, parent);
                 closed.transform.localScale = new Vector3(3f, 3f, 3f);
             }
             i++;
         }
         // Translate cubics to last opened or selected world so it will be in front of the camera
-        TranslateCubic(worlds);
+        TranslateCubic(gameData.selectedWorld);
+        WriteWorldName(gameData.selectedWorld);
     }
 
-    public void TranslateCubic(Worlds w)
+    public void TranslateCubic(int selectedWorldId)
     {
-        Cubics.position = new Vector3(-20f * (float)(w.selectedWorld - 1), 0f, 0f);
-
-        WriteWorldName(w.selectedWorld);
+        Cubics.position = new Vector3(-20f * (float)(selectedWorldId - 1), 0f, 0f);
     }
 
-    public void WriteWorldName(int id)
+    public void WriteWorldName(int selectedWorldId)
     {
-        worldNameText.text = id + ". " + worlds.worlds[id - 1].Name;
+        worldNameText.text = selectedWorldId + ". " + gameDatabase.Worlds[selectedWorldId - 1].WorldName;
     }
 
     public void LoadData()
     {
-        World w = worlds.worlds[gameData.playingWorldId - 1];
-        Level l = w.levels[gameData.playingLevel];
+        World world = gameDatabase.Worlds[gameData.selectedWorld - 1];
+        Level level = world.Levels[gameData.selectedLevel];
 
-        gameData.cubic = w.gamePrefab;
-        gameData.target = l.target;
-        gameData.duration = l.duration;
-        gameData.stamina = l.stamina;
-        gameData.targetCount = l.targetCount;
+        gameData.gamePrefab = world.GamePrefab;
+        gameData.targetSprite = level.TargetSprite;
+        gameData.duration = level.Duration;
+        gameData.stamina = level.Stamina;
+        gameData.targetCount = level.TargetCount;
     }
 }

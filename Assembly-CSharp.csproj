@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Game Managers\GM_Input.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GM_SceneManager.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GM_ToogleGame.cs" />
+    <Compile Include="Assets\Scripts\GameDataClone.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\Menu Managers\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Menu Managers\MM_Enums.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets\Scripts\MUI Managers\MUIM_BtnClicks.cs" />
     <Compile Include="Assets\Scripts\MUI Managers\MUIM_CubicSelection.cs" />
     <Compile Include="Assets\Scripts\SOs\BoosterData.cs" />
+    <Compile Include="Assets\Scripts\SOs\Database.cs" />
     <Compile Include="Assets\Scripts\SOs\GameData.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\UI Managers\UIM_CountDown.cs" />
@@ -94,7 +96,6 @@
     <Compile Include="Assets\Scripts\UI Managers\UIM_Timer.cs" />
     <Compile Include="Assets\Scripts\UI Managers\UIM_Win.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
-    <Compile Include="Assets\Scripts\Worlds.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

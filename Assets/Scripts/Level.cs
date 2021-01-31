@@ -6,7 +6,12 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Level
 {
-    public Sprite target;
-    public int targetCount;
-    public float duration, stamina;
+    [SerializeField] Sprite targetSprite;
+    [SerializeField] int targetCount;
+    [SerializeField] float duration, stamina;
+
+    public Sprite TargetSprite { get { return targetSprite; } }
+    public int TargetCount { get { return targetCount; } }
+    public float Duration { get { return duration; } }
+    public float Stamina { get { return stamina; } }
 }

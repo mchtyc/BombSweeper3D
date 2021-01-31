@@ -16,12 +16,12 @@ public class GameManager : MonoBehaviour
     {
         InitGame();
 
-        GM_Events.CallEventContinueGame();
+        GM_Events.CallEventContinueGame();  
     }
 
     void InitGame()
     {
         // Instantiating the shape
-        Instantiate(gameData.cubic, playground);
+        Instantiate(gameData.gamePrefab, playground);
     }
 }

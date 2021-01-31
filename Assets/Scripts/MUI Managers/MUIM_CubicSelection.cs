@@ -29,7 +29,7 @@ public class MUIM_CubicSelection : MonoBehaviour
         if (cubic.GetOpen())
         {
             MM_Enums.SetMenuPage(MenuPage.LevelPage);
-            gameData.playingWorldId = cubic.GetID();
+            gameData.selectedWorld = cubic.GetID();
 
             StartCoroutine(InstantiateLevelBtns(cubic.GetLevelCount()));
         }
@@ -53,7 +53,7 @@ public class MUIM_CubicSelection : MonoBehaviour
                 yield return null;
             }
 
-            // Grid level scrollunun en son geçilen levelin butonu en üste olacak şekilede kadır
+            // Grid level scrollunun en son geçilen levelin butonu en üste olacak şekilede kaydır
             // Butonlar açık olan levele kadar açık sonraki leveller için kapalı olacak
         }
 
@@ -62,7 +62,7 @@ public class MUIM_CubicSelection : MonoBehaviour
 
     void OnClickLevelBtn(int level)
     {
-        gameData.playingLevel = level;
+        gameData.selectedLevel = level;
         MM_Enums.SetMenuPage(MenuPage.WorldPage);
         MM_Events.CallEventOpenGame();
     }

@@ -605,7 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92699c15221fd04b8b4ca712db172bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubicIndex: 0
 --- !u!4 &927763870
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,6 +1230,7 @@ GameObject:
   - component: {fileID: 1702628154}
   - component: {fileID: 1702628155}
   - component: {fileID: 1702628159}
+  - component: {fileID: 1702628160}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1344,156 +1344,7 @@ MonoBehaviour:
   MM_Events: {fileID: 1702628156}
   worldNameText: {fileID: 1249029490}
   gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
-  worlds:
-    worlds:
-    - WorldPrefab: {fileID: 8225203381516778230, guid: ad7576f18e1674048b8b916392fc41b9,
-        type: 3}
-      closedPrefab: {fileID: 1512368822021507449, guid: 9b140766eae948448901e3a1a27b89f4,
-        type: 3}
-      gamePrefab: {fileID: 7355992490506804816, guid: a68b5c4231f386b40bb02add6d43d31c,
-        type: 3}
-      levels:
-      - target: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
-        targetCount: 11
-        duration: 300
-        stamina: 50
-      - target: {fileID: 21300000, guid: da232762f68edfe4d9e72ec7407de379, type: 3}
-        targetCount: 12
-        duration: 250
-        stamina: 40
-      - target: {fileID: 21300000, guid: 1ca8d81f18e41ff48923bc4786849bbe, type: 3}
-        targetCount: 13
-        duration: 200
-        stamina: 30
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      Name: Shape 1
-      id: 1
-      levelCount: 11
-      open: 1
-    - WorldPrefab: {fileID: 8225203381516778230, guid: 532b924ec27ebf644875a551a2a4b058,
-        type: 3}
-      closedPrefab: {fileID: 1512368822021507449, guid: 123f90e6a3dbb3c4b8b601f7b5194d1d,
-        type: 3}
-      gamePrefab: {fileID: 7355992490506804816, guid: 37158bd1a5d46ac43b8d215e69bb38a5,
-        type: 3}
-      levels:
-      - target: {fileID: 21300000, guid: a0a6ee8aad9b7b34fb601679fcb985e8, type: 3}
-        targetCount: 21
-        duration: 200
-        stamina: 30
-      - target: {fileID: 21300000, guid: b4205f449d72f77499a578b709d2ddf5, type: 3}
-        targetCount: 22
-        duration: 150
-        stamina: 20
-      - target: {fileID: 21300000, guid: 593ad18e5351f0b45a66802c7fd0d1d2, type: 3}
-        targetCount: 23
-        duration: 100
-        stamina: 10
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      - target: {fileID: 0}
-        targetCount: 0
-        duration: 0
-        stamina: 0
-      Name: Shape 2
-      id: 2
-      levelCount: 12
-      open: 1
-    - WorldPrefab: {fileID: 8225203381516778230, guid: b858d5507d8afe3498ba33e50c95aff0,
-        type: 3}
-      closedPrefab: {fileID: 1512368822021507449, guid: 9042971abd36b5c43aaa3a8db1cb925c,
-        type: 3}
-      gamePrefab: {fileID: 7355992490506804816, guid: 009ed951697e2e0439aab82d315a4e09,
-        type: 3}
-      levels: []
-      Name: Shape 3
-      id: 3
-      levelCount: 13
-      open: 0
-    - WorldPrefab: {fileID: 8225203381516778230, guid: 985405d589c03eb419964c1c62e3afc7,
-        type: 3}
-      closedPrefab: {fileID: 1512368822021507449, guid: 606a9685fee9f6b45896bc663bd01d4c,
-        type: 3}
-      gamePrefab: {fileID: 7355992490506804816, guid: 1088acaae89d84546b8c1f644ecec502,
-        type: 3}
-      levels: []
-      Name: Shape 4
-      id: 4
-      levelCount: 14
-      open: 0
-    - WorldPrefab: {fileID: 8225203381516778230, guid: 134911f338bde0a4f8b12d6e42070291,
-        type: 3}
-      closedPrefab: {fileID: 1512368822021507449, guid: 2c8f444625e4b6e418dea0fce878fce3,
-        type: 3}
-      gamePrefab: {fileID: 7355992490506804816, guid: 0e6a37ac8ea554640b00be55876967d6,
-        type: 3}
-      levels: []
-      Name: Shape 5
-      id: 5
-      levelCount: 15
-      open: 0
-    selectedWorld: 1
+  gameDatabase: {fileID: 11400000, guid: 080d06c121263d64cb68b7be437c9bd5, type: 2}
 --- !u!114 &1702628159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,6 +1359,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelsBG: {fileID: 1859313366}
   Contents: {fileID: 1665872694}
+--- !u!114 &1702628160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702628151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58648f3e42a79a64bb4348682c6d8f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
 --- !u!1 &1759540620
 GameObject:
   m_ObjectHideFlags: 0

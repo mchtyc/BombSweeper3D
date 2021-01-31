@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new Game Data", menuName = "Game Data", order = 51)]
+[CreateAssetMenu(fileName = "Game Data", menuName = "Game Data", order = 51)]
 public class GameData : ScriptableObject
 {
-    public GameObject cubic;
-    public Sprite target;
+    public GameObject gamePrefab;
+    public Sprite targetSprite;
     public float duration, stamina;
-    public int targetCount; 
-    
-    public int playingWorldId;
-    public int playingLevel;
+    public int targetCount, selectedWorld, lastOpenedWorld, selectedLevel, boosterCount;
+    public int[] lastOpenedLevels;
 
     // Bölümü oynadıktan sonra geri döndürülecek yıldız sayısı puan... gibi bilgiler
-
 }

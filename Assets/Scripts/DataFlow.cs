@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataFlow : MonoBehaviour
 {
-    public int cubicIndex;
+    //public int cubicIndex;
 
     private void Awake()
     {

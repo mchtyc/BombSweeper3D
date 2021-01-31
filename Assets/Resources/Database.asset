@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a13f736922e76479b379a07fb53def, type: 3}
+  m_Name: Database
+  m_EditorClassIdentifier: 
+  worlds:
+  - id: 1
+    worldName: World 1
+    menuPrefabOpened: {fileID: 8225203381516778230, guid: ad7576f18e1674048b8b916392fc41b9,
+      type: 3}
+    menuPrefabClosed: {fileID: 1512368822021507449, guid: 2c8f444625e4b6e418dea0fce878fce3,
+      type: 3}
+    gamePrefab: {fileID: 7355992490506804816, guid: a68b5c4231f386b40bb02add6d43d31c,
+      type: 3}
+    levels:
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 11
+      duration: 300
+      stamina: 50
+    - targetSprite: {fileID: 21300000, guid: da232762f68edfe4d9e72ec7407de379, type: 3}
+      targetCount: 12
+      duration: 250
+      stamina: 40
+    - targetSprite: {fileID: 21300000, guid: 1ca8d81f18e41ff48923bc4786849bbe, type: 3}
+      targetCount: 13
+      duration: 200
+      stamina: 30
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+  - id: 2
+    worldName: World 2
+    menuPrefabOpened: {fileID: 8225203381516778230, guid: 532b924ec27ebf644875a551a2a4b058,
+      type: 3}
+    menuPrefabClosed: {fileID: 1512368822021507449, guid: 123f90e6a3dbb3c4b8b601f7b5194d1d,
+      type: 3}
+    gamePrefab: {fileID: 7355992490506804816, guid: 37158bd1a5d46ac43b8d215e69bb38a5,
+      type: 3}
+    levels:
+    - targetSprite: {fileID: 21300000, guid: a0a6ee8aad9b7b34fb601679fcb985e8, type: 3}
+      targetCount: 21
+      duration: 200
+      stamina: 30
+    - targetSprite: {fileID: 21300000, guid: b4205f449d72f77499a578b709d2ddf5, type: 3}
+      targetCount: 22
+      duration: 150
+      stamina: 20
+    - targetSprite: {fileID: 21300000, guid: 593ad18e5351f0b45a66802c7fd0d1d2, type: 3}
+      targetCount: 23
+      duration: 100
+      stamina: 10
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+  - id: 3
+    worldName: World 3
+    menuPrefabOpened: {fileID: 8225203381516778230, guid: b858d5507d8afe3498ba33e50c95aff0,
+      type: 3}
+    menuPrefabClosed: {fileID: 1512368822021507449, guid: 9042971abd36b5c43aaa3a8db1cb925c,
+      type: 3}
+    gamePrefab: {fileID: 7355992490506804816, guid: 009ed951697e2e0439aab82d315a4e09,
+      type: 3}
+    levels:
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+  - id: 4
+    worldName: World 4
+    menuPrefabOpened: {fileID: 8225203381516778230, guid: 985405d589c03eb419964c1c62e3afc7,
+      type: 3}
+    menuPrefabClosed: {fileID: 1512368822021507449, guid: 606a9685fee9f6b45896bc663bd01d4c,
+      type: 3}
+    gamePrefab: {fileID: 7355992490506804816, guid: 1088acaae89d84546b8c1f644ecec502,
+      type: 3}
+    levels:
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+  - id: 5
+    worldName: World 5
+    menuPrefabOpened: {fileID: 8225203381516778230, guid: 134911f338bde0a4f8b12d6e42070291,
+      type: 3}
+    menuPrefabClosed: {fileID: 1512368822021507449, guid: 2c8f444625e4b6e418dea0fce878fce3,
+      type: 3}
+    gamePrefab: {fileID: 7355992490506804816, guid: 0e6a37ac8ea554640b00be55876967d6,
+      type: 3}
+    levels:
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
+    - targetSprite: {fileID: 0}
+      targetCount: 0
+      duration: 0
+      stamina: 0
