@@ -7,29 +7,51 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
 	public GameData gameData;
+	string dataPath;
 
 	void Start()
 	{
+		dataPath = Application.persistentDataPath + "/gameData.dat";
+
 		LoadFromLocal();
 	}
 
 	public void SaveToLocal()
 	{
 		GameDataClone dataClone = CloneFromGameData();
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create("Assets/Resources/gameData.data");
-		bf.Serialize(file, dataClone);
-		file.Close();
+		string json = JsonUtility.ToJson(dataClone);
+		File.WriteAllText(dataPath, json);
+
+		//BinaryFormatter bf = new BinaryFormatter();
+		//FileStream file = File.Create(Application.streamingAssetsPath + "/gameData.data");
+		//bf.Serialize(file, dataClone);
+		//file.Close();
+		LoadFromLocal();
 	}
+
+	//public void SaveToLocal(int[] stars, int worldID)
+	//{
+	//	string filePath = "Assets/Resources/world" + worldID + "stars.data";
+	//	BinaryFormatter bf = new BinaryFormatter();
+	//	FileStream file = File.Create(filePath);
+	//	bf.Serialize(file, stars);
+	//	file.Close();
+	//}
 
 	public void LoadFromLocal()
 	{
-		if (File.Exists("Assets/Resources/gameData.data"))
+		if (File.Exists(dataPath))
 		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open("Assets/Resources/gameData.data", FileMode.Open);
-			GameDataClone dataClone = (GameDataClone)bf.Deserialize(file);
-			file.Close();
+			//BinaryFormatter bf = new BinaryFormatter();
+			//FileStream file = File.Open(Application.streamingAssetsPath + "/gameData.data", FileMode.Open);
+			//GameDataClone dataClone = (GameDataClone)bf.Deserialize(file);
+			//file.Close();
+			//LoadFromClone(dataClone);
+			//testText.text = dataClone.testString;
+			StreamReader r = new StreamReader(dataPath);
+			string json = r.ReadToEnd();
+			r.Close();
+			GameDataClone dataClone = JsonUtility.FromJson<GameDataClone>(json);
 			LoadFromClone(dataClone);
 		}
 		else
@@ -37,6 +59,24 @@ public class DataManager : MonoBehaviour
 			SaveToLocal();
 		}
 	}
+
+	//public int[] LoadFromLocal(int[] stars, int worldID)
+	//{
+	//	string filePath = "Assets/Resources/world" + worldID + "stars.data";
+	//	if (File.Exists(filePath))
+	//	{
+	//		BinaryFormatter bf = new BinaryFormatter();
+	//		FileStream file = File.Open(filePath, FileMode.Open);
+	//		stars = (int[])bf.Deserialize(file);
+	//		file.Close();
+	//	}
+	//	else
+	//	{
+	//		SaveToLocal();	
+	//	}
+
+	//	return stars;
+	//}
 
 	GameDataClone CloneFromGameData()
 	{
@@ -51,7 +91,7 @@ public class DataManager : MonoBehaviour
 		{
 			dataClone.lastOpenedLevels[i] = gameData.lastOpenedLevels[i];
 		}
-
+		
 		return dataClone;
 	}
 
@@ -68,7 +108,7 @@ public class DataManager : MonoBehaviour
 
 	void OnDestroy()
 	{
-		SaveToLocal();
+		//SaveToLocal();
 	}
 
 	//public static Datas gameDatas;

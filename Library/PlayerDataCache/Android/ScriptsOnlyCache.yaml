@@ -2,7 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Booster1
-    - BoosterData
+    - Cubic
+    - DataFlow
+    - DataManager
+    - Database
     - GM_Board
     - GM_Boosters
     - GM_Enums
@@ -12,6 +15,13 @@ ScriptsOnlyBuild:
     - GM_ToogleGame
     - GameData
     - GameManager
+    - MM_Enums
+    - MM_Events
+    - MM_Input
+    - MM_SceneManagement
+    - MUIM_BtnClicks
+    - MUIM_CubicSelection
+    - MenuManager
     - Tile
     - UIM_CountDown
     - UIM_GameOver
@@ -38,12 +48,121 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Game Scene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9326}
+    - Class: 114
+      Script: {instanceID: 9398}
+    - Class: 114
+      Script: {instanceID: 9400}
+    - Class: 114
+      Script: {instanceID: 9406}
+    - Class: 114
+      Script: {instanceID: 9412}
+    - Class: 114
+      Script: {instanceID: 9420}
+    - Class: 114
+      Script: {instanceID: 9442}
+    - Class: 114
+      Script: {instanceID: 9456}
+    - Class: 114
+      Script: {instanceID: 9458}
+    - Class: 114
+      Script: {instanceID: 9620}
+    - Class: 114
+      Script: {instanceID: 9640}
+    - Class: 114
+      Script: {instanceID: 9694}
+    - Class: 114
+      Script: {instanceID: 9742}
+    - Class: 114
+      Script: {instanceID: 9836}
+    - Class: 114
+      Script: {instanceID: 9916}
+    - Class: 114
+      Script: {instanceID: 9936}
+    - Class: 114
+      Script: {instanceID: 9946}
+    - Class: 114
+      Script: {instanceID: 9954}
+    - Class: 114
+      Script: {instanceID: 9984}
+    - Class: 114
+      Script: {instanceID: 10086}
+    - Class: 114
+      Script: {instanceID: 10152}
+    - Class: 114
+      Script: {instanceID: 10320}
+    - Class: 114
+      Script: {instanceID: 10432}
+    - Class: 114
+      Script: {instanceID: 10492}
+    - Class: 114
+      Script: {instanceID: 10508}
+    - Class: 114
+      Script: {instanceID: 10510}
+    - Class: 114
+      Script: {instanceID: 10532}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    Assets/Scenes/Menu Scene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -66,9 +185,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 102
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -77,76 +202,68 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9326}
+      Script: {instanceID: 9374}
     - Class: 114
-      Script: {instanceID: 9396}
+      Script: {instanceID: 9378}
     - Class: 114
       Script: {instanceID: 9398}
     - Class: 114
-      Script: {instanceID: 9404}
+      Script: {instanceID: 9400}
     - Class: 114
-      Script: {instanceID: 9410}
+      Script: {instanceID: 9402}
     - Class: 114
-      Script: {instanceID: 9418}
+      Script: {instanceID: 9406}
     - Class: 114
-      Script: {instanceID: 9440}
+      Script: {instanceID: 9412}
     - Class: 114
-      Script: {instanceID: 9454}
+      Script: {instanceID: 9414}
+    - Class: 114
+      Script: {instanceID: 9420}
+    - Class: 114
+      Script: {instanceID: 9428}
+    - Class: 114
+      Script: {instanceID: 9448}
     - Class: 114
       Script: {instanceID: 9456}
     - Class: 114
-      Script: {instanceID: 9618}
+      Script: {instanceID: 9458}
     - Class: 114
-      Script: {instanceID: 9638}
+      Script: {instanceID: 9474}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9632}
     - Class: 114
-      Script: {instanceID: 9740}
+      Script: {instanceID: 9670}
     - Class: 114
-      Script: {instanceID: 9778}
+      Script: {instanceID: 9780}
     - Class: 114
-      Script: {instanceID: 9834}
+      Script: {instanceID: 9852}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 9934}
+      Script: {instanceID: 9954}
     - Class: 114
-      Script: {instanceID: 9944}
+      Script: {instanceID: 10004}
     - Class: 114
-      Script: {instanceID: 9952}
+      Script: {instanceID: 10086}
     - Class: 114
-      Script: {instanceID: 9982}
+      Script: {instanceID: 10096}
     - Class: 114
-      Script: {instanceID: 10010}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10082}
+      Script: {instanceID: 10330}
     - Class: 114
-      Script: {instanceID: 10092}
+      Script: {instanceID: 10422}
     - Class: 114
-      Script: {instanceID: 10148}
+      Script: {instanceID: 10476}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10492}
     - Class: 114
-      Script: {instanceID: 10418}
-    - Class: 114
-      Script: {instanceID: 10428}
-    - Class: 114
-      Script: {instanceID: 10486}
-    - Class: 114
-      Script: {instanceID: 10502}
-    - Class: 114
-      Script: {instanceID: 10504}
-    - Class: 114
-      Script: {instanceID: 10526}
+      Script: {instanceID: 10508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 198
-      Script: {instanceID: 0}
-    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -157,8 +274,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -205,10 +320,16 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 421144757385429c5024cf78a84b2206
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DataFlow
+  - hash:
+      serializedVersion: 2
+      Hash: ac6dcd3f02f8ec576d857c3b20c3d6d0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TestManager
   - hash:
       serializedVersion: 2
       Hash: 30a4f722c06b36542354fa0465da9925
@@ -625,7 +746,7 @@ ScriptsOnlyBuild:
     className: UIM_Timer
   - hash:
       serializedVersion: 2
-      Hash: 3c82fc6f9a9c8a25aaa8a1f2bf674b2f
+      Hash: dd0d69165e4868a873a356466cbe5fe0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuManager
@@ -641,6 +762,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 7f52cb9bdbc53169290502fa7bf799f3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Database
   - hash:
       serializedVersion: 2
       Hash: 00274a21279f5cb831ce20f895049e38
@@ -745,7 +872,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 7f9513162b8ea34d751eb56e46bbbee9
+      Hash: e07c4decce5ee28e68be71bfc7c50878
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -757,7 +884,7 @@ ScriptsOnlyBuild:
     className: GM_Input
   - hash:
       serializedVersion: 2
-      Hash: d63c53f4485d611f73c69a0ba8e1c883
+      Hash: 37369458e75813ee46f89093b6f6c356
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameData
@@ -889,7 +1016,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: f7db814fa5f884ffe3c63d2f35241c84
+      Hash: 9633ec5c6fbdcc89a21ca3d3d2ba3da6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIM_Win
@@ -917,6 +1044,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIM_TargetCount
+  - hash:
+      serializedVersion: 2
+      Hash: eca3be3d754c32fa69de7a15a6fe16aa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataManager
   - hash:
       serializedVersion: 2
       Hash: 5372ed2ce39229b1ac910757999a8be2
@@ -967,5 +1100,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
+  - Assets/Scenes/Menu Scene.unity
   - Assets/Scenes/Game Scene.unity
   playerPath: C:/Users/Public/Documents/Unity Projects/Bomb Sweeper 3D/Apks/01.apk
