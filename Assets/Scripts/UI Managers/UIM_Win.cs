@@ -5,7 +5,9 @@ using UnityEngine;
 public class UIM_Win : MonoBehaviour
 {
     public GM_Events GM_Events;
+    public GameManager GM;
     public GameObject WinPanel;
+    public GameData gameData;
 
     private void OnEnable()
     {
@@ -21,6 +23,8 @@ public class UIM_Win : MonoBehaviour
     public void OnWin()
     {
         GM_Enums.ChangeGameState(GameStates.Nonclickable);
+        gameData.starCount = GM.StarCount;
+        gameData.isPlayed = true;
         WinPanel.SetActive(true);
         GM_Events.CallEventPauseGame();
     }

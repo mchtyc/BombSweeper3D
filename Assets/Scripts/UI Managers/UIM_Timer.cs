@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class UIM_Timer : MonoBehaviour
 {
     public GM_Events GM_Events;
-    public Image fillImage;
-    public Color dangerColor;
+    public Image fillImage, star1, star2, star3;
+    public Color dangerColor, droppedStarColor;
 
     public GameData gameData;
 
     Coroutine runTimer;
     float startedTime, remainingTime, idleTime, stoppingTime, totalTime;
+    int starCount;
+
 
     private void OnEnable()
     {
@@ -38,23 +40,37 @@ public class UIM_Timer : MonoBehaviour
 
     IEnumerator ChangeTimer(float idle)
     {
-        bool changeColor = false;
+        bool colorChanged = false, thirdStarDropped = false, secondStarDropped = false;
 
         while(true)
         {
             remainingTime = Time.time - startedTime - idleTime;
-            fillImage.fillAmount = (totalTime - remainingTime) / totalTime;
+            float fAmount = (totalTime - remainingTime) / totalTime;
+            fillImage.fillAmount = fAmount;
 
-            if (!changeColor)
+            if (fAmount <= 0.7f && !thirdStarDropped)
             {
-                if (fillImage.fillAmount <= 0.3f)
+                star3.color = droppedStarColor;
+                GM_Events.CallEventStarCountChange();
+                thirdStarDropped = true;
+            }
+            else if (fAmount <= 0.5f && !secondStarDropped)
+            {
+                star2.color = droppedStarColor;
+                GM_Events.CallEventStarCountChange();
+                secondStarDropped = true;
+            }
+
+            if (!colorChanged)
+            {
+                if (fAmount <= 0.3f)
                 {
                     fillImage.color = dangerColor;
-                    changeColor = true;
+                    colorChanged = true;
                 } 
             }
             
-            if(fillImage.fillAmount <= 0f)
+            if(fAmount <= 0f)
             {
                 GM_Events.CallEventGameOver();
             }

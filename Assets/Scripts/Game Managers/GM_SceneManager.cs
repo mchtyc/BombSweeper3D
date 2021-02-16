@@ -11,4 +11,9 @@ public class GM_SceneManager : MonoBehaviour
     {
         SceneManager.LoadScene((int)Scenes.GameScene);
     }
+
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene((int)Scenes.MenuScene);
+    }
 }

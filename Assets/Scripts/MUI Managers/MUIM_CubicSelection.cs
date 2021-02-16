@@ -11,6 +11,7 @@ public class MUIM_CubicSelection : MonoBehaviour
     public GridLayoutGroup GLayout;
     public RectTransform RTrans;
     public GameData gameData;
+    public DataFlow dataFlow;
 
     float spacing = 50f;
 
@@ -26,25 +27,42 @@ public class MUIM_CubicSelection : MonoBehaviour
 
     public void OpenCubic(Cubic cubic)
     {
-        if (cubic.GetOpen())
+        if (cubic.Open)
         {
             MM_Enums.SetMenuPage(MenuPage.LevelPage);
-            gameData.selectedWorld = cubic.GetID();
+            gameData.selectedWorld = cubic.ID;
 
-            StartCoroutine(InstantiateLevelBtns(cubic.GetLevelCount()));
+            StartCoroutine(InstantiateLevelBtns(cubic));
         }
     }    
 
-    IEnumerator InstantiateLevelBtns(int levelCount)
+    IEnumerator InstantiateLevelBtns(Cubic cubic)
     {
         float cellSize = ((Screen.width * 92f / 100f) - (spacing * 6f)) / 5f;
         GLayout.cellSize = new Vector2(cellSize, cellSize);
         
-        for (int i = 0; i < levelCount; i++)
+        for (int i = 0; i < cubic.LevelCount; i++)
         {
             Button btn = Instantiate(levelBtn, Contents).GetComponent<Button>();
             int level = i + 1;
             btn.GetComponentInChildren<Text>().text = "Level " + (level);
+
+            if (dataFlow.cubicDatas[cubic.ID - 1].lastOpenedLevel <= i)
+            {
+                btn.interactable = false;
+            }
+            else
+            {
+                for (int j = 1; j <= 3; j++)
+                {
+                    btn.transform.GetChild(j).gameObject.SetActive(true);
+
+                    if (cubic.cubicData.starCounts[i] >= j)
+                    {
+                        btn.transform.GetChild(j).gameObject.GetComponent<Image>().color = Color.white;
+                    }
+                }
+            }
 
             btn.onClick.AddListener(delegate { OnClickLevelBtn(level); });
 

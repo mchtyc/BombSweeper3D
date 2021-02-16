@@ -15,11 +15,14 @@ MonoBehaviour:
   gamePrefab: {fileID: 7355992490506804816, guid: a68b5c4231f386b40bb02add6d43d31c,
     type: 3}
   targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
-  duration: 100
-  stamina: 15
-  targetCount: 10
+  duration: 300
+  stamina: 50
+  targetCount: 11
   selectedWorld: 1
-  lastOpenedWorld: 4
-  selectedLevel: 3
+  lastOpenedWorld: 1
+  selectedLevel: 1
   boosterCount: 3
-  lastOpenedLevels: 0b00000001000000000000000000000000000000
+  worldCount: 5
+  lastOpenedLevels: 0100000000000000000000000000000000000000
+  isPlayed: 0
+  starCount: 3

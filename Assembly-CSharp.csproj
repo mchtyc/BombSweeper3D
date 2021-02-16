@@ -63,10 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Test\Test_NarsistikSayilar.cs" />
+    <Compile Include="Assets\_Test\TestManager.cs" />
     <Compile Include="Assets\Booster.cs" />
     <Compile Include="Assets\Booster1.cs" />
     <Compile Include="Assets\GM_Boosters.cs" />
     <Compile Include="Assets\Scripts\Cubic.cs" />
+    <Compile Include="Assets\Scripts\CubicData.cs" />
     <Compile Include="Assets\Scripts\DataFlow.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scripts\Game Managers\GameManager.cs" />
@@ -96,7 +99,6 @@
     <Compile Include="Assets\Scripts\UI Managers\UIM_Timer.cs" />
     <Compile Include="Assets\Scripts\UI Managers\UIM_Win.cs" />
     <Compile Include="Assets\Scripts\World.cs" />
-    <Compile Include="Assets\TestManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

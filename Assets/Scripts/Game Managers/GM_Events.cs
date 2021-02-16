@@ -26,8 +26,7 @@ public class GM_Events : MonoBehaviour
 
     public event EventBoosterHandler EventBoosterUtility;
 
-    
-
+    public event EventHandler EventStarCountChange;
 
     public event EventDamageHandler EventTakeDamage;
 
@@ -116,6 +115,14 @@ public class GM_Events : MonoBehaviour
         if (EventBoosterUtility != null)
         {
             EventBoosterUtility(booster);
+        }
+    }
+
+    public void CallEventStarCountChange()
+    {
+        if (EventStarCountChange != null)
+        {
+            EventStarCountChange();
         }
     }
 }
