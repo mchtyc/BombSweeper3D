@@ -59,7 +59,7 @@ public class MM_Input : MonoBehaviour
                 
                 if (cubic != null)
                 {
-                    OpenCubic(cubic);
+                    OpenCubic(cubic.ID);
                 }
             }
             else
@@ -91,7 +91,7 @@ public class MM_Input : MonoBehaviour
             menu.position = new Vector3(Mathf.Lerp(menu.position.x, finalX, (float)i / 10f), 0f, 0f);
             yield return null;
         }
-        MM_Events.CallEventSelectedWorld(selectedWorld);
+        MM_Events.CallEventWorldOnFocus(selectedWorld);
     }
 
     void RestrictPositions()
@@ -164,8 +164,8 @@ public class MM_Input : MonoBehaviour
         }
     }
 
-    void OpenCubic(Cubic c)
+    void OpenCubic(int id)
     {
-        MM_Events.CallEventSelectCubic(c);
+        MM_Events.CallEventSelectCubic(id);
     }
 }

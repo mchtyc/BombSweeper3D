@@ -608,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
   dataManager: {fileID: 927763871}
+  menuManager: {fileID: 1702628158}
   cubicDatas: []
 --- !u!4 &927763870
 Transform:
@@ -1315,9 +1316,7 @@ MonoBehaviour:
   Contents: {fileID: 1665872694}
   MM_Events: {fileID: 1702628156}
   GLayout: {fileID: 1665872695}
-  RTrans: {fileID: 1665872694}
   gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
-  dataFlow: {fileID: 927763869}
 --- !u!114 &1702628156
 MonoBehaviour:
   m_ObjectHideFlags: 0

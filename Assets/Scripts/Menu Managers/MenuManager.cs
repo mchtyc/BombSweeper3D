@@ -25,13 +25,13 @@ public class MenuManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MM_Events.EventSelectedWorld += WriteWorldName;
+        MM_Events.EventWorldOnFocus += WriteWorldName;
         MM_Events.EventOpenGame += LoadData;
     }
 
     private void OnDisable()
     {
-        MM_Events.EventSelectedWorld -= WriteWorldName;
+        MM_Events.EventWorldOnFocus -= WriteWorldName;
         MM_Events.EventOpenGame -= LoadData;
     }
 
@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
             if (gameData.lastOpenedWorld > index)
             {
                 Cubic cubic = Instantiate(world.MenuPrefabOpened, parent).GetComponent<Cubic>();
-                cubic.InitData(world.ID, world.Levels.Length, true);
+                cubic.InitData(world.ID);
             }
             else
             {

@@ -28,12 +28,14 @@ public class DataManager : MonoBehaviour
 		LoadFromLocal();
 	}
 
-	public void SaveToLocal(CubicData data)
+	public void SaveToLocal(int id)
 	{
-		string filePath = Application.persistentDataPath + "/world" + data.ID + ".dat";
+		CubicData cubicData = DataFlow.instance.cubicDatas[id - 1];
+
+		string filePath = Application.persistentDataPath + "/world" + cubicData.ID + ".dat";
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(filePath);
-		bf.Serialize(file, data);
+		bf.Serialize(file, cubicData);
 		file.Close();
 	}
 
@@ -69,23 +71,21 @@ public class DataManager : MonoBehaviour
 		}
 	}
 
-	public CubicData LoadFromLocal(CubicData cubicData)
+	public void LoadFromLocal(int id)
 	{
-		string filePath = Application.persistentDataPath + "/world" + cubicData.ID + ".dat";
+		string filePath = Application.persistentDataPath + "/world" + id + ".dat";
 
 		if (File.Exists(filePath))
 		{
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(filePath, FileMode.Open);
-			cubicData = (CubicData)bf.Deserialize(file);
+			DataFlow.instance.cubicDatas[id - 1] = (CubicData)bf.Deserialize(file);
 			file.Close();
 		}
 		else
 		{
-			SaveToLocal(cubicData);
-			return cubicData;			
+			SaveToLocal(id);
 		}
-		return cubicData;
 	}
 
 	GameDataClone CloneFromGameData()

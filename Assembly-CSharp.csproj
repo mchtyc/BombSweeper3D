@@ -88,9 +88,9 @@
     <Compile Include="Assets\Scripts\Menu Managers\MM_SceneManagement.cs" />
     <Compile Include="Assets\Scripts\MUI Managers\MUIM_BtnClicks.cs" />
     <Compile Include="Assets\Scripts\MUI Managers\MUIM_CubicSelection.cs" />
-    <Compile Include="Assets\Scripts\SOs\BoosterData.cs" />
-    <Compile Include="Assets\Scripts\SOs\Database.cs" />
-    <Compile Include="Assets\Scripts\SOs\GameData.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\BoosterData.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\Database.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\GameData.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\UI Managers\UIM_CountDown.cs" />
     <Compile Include="Assets\Scripts\UI Managers\UIM_GameOver.cs" />

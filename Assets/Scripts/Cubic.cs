@@ -5,24 +5,40 @@ using UnityEngine;
 public class Cubic : MonoBehaviour
 {
     [HideInInspector] public int ID { get; private set; }
-    [HideInInspector] public int LevelCount { get; private set; }
-    [HideInInspector] public bool Open { get; private set; }
+    //[HideInInspector] public int LevelCount { get; private set; }
+    //[HideInInspector] public bool Open { get; private set; }
 
-    DataFlow dataFlow;
-    [HideInInspector] public CubicData cubicData;
+    float offset = 2f;
+    bool inRange;
     
     void Start()
     {
-        dataFlow = GameObject.FindGameObjectWithTag("Data").GetComponent<DataFlow>();
-        cubicData = new CubicData(LevelCount, ID);
-        dataFlow.AddData(cubicData);
+
     }
 
-    public void InitData(int id, int count, bool isOpened)
+    void Update()
+    {
+        //CheckIfInRange();
+    }
+
+    void CheckIfInRange()   // NOT finished method, scaling için kullanılacak
+    {
+        if (inRange)
+        {
+            if (Mathf.Abs(transform.position.x) > 2f)
+            {
+                inRange = false;
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void InitData(int id)
     {
         ID = id;
-        LevelCount = count;
-        Open = isOpened;
     }
 
 }

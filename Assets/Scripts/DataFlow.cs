@@ -6,10 +6,11 @@ public class DataFlow : MonoBehaviour
 {
     public GameData gameData;
     public DataManager dataManager;
+    public MenuManager menuManager;
 
-    [HideInInspector] public CubicData[] cubicDatas;
+    [HideInInspector] public List<CubicData> cubicDatas;
 
-    static GameObject instance;
+    public static DataFlow instance;
     
     void Awake()
     {
@@ -17,53 +18,25 @@ public class DataFlow : MonoBehaviour
 
         if(instance == null)
         {
-            instance = gameObject;
+            instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
 
-        cubicDatas = new CubicData[gameData.worldCount];
+        GetCubicDatasFromLocal();
     }
 
-    public void AddData(CubicData data)
+    void GetCubicDatasFromLocal()
     {
-        cubicDatas[data.ID - 1] = data;
-        SavingCubicData(data);
-    }
+        cubicDatas = new List<CubicData>();
 
-    void SavingCubicData(CubicData data)
-    {
-        data = dataManager.LoadFromLocal(data);
-
-        if (data == null)
+        for (int i = 1; i <= gameData.lastOpenedWorld; i++)
         {
-            dataManager.SaveToLocal(data);
+            CubicData cubicData = new CubicData(i, menuManager.gameDatabase.Worlds[i].Levels.Length);
+            cubicDatas.Add(cubicData);
+            dataManager.LoadFromLocal(cubicData.ID);
         }
-
-        // Bu kısım level oynanır oynanmaz gamescene de işlenebilir
-        //if (gameData.isPlayed)
-        //{
-        //    if (data.ID == gameData.selectedWorld)
-        //    {
-        //        data.starCounts[gameData.selectedLevel - 1] = gameData.starCount;
-
-        //        if (data.lastOpenedLevel == gameData.selectedLevel)
-        //        {
-        //            data.lastOpenedLevel++;
-        //        }
-
-
-        //        if (gameData.selectedLevel == data.starCounts.Length)
-        //        {
-        //            gameData.lastOpenedWorld++;
-        //            dataManager.SaveToLocal();
-        //        }
-
-        //        dataManager.SaveToLocal(data);
-        //        gameData.isPlayed = false;
-        //    }
-        //}
     }
 }

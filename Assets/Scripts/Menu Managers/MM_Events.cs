@@ -5,30 +5,27 @@ using UnityEngine;
 public class MM_Events : MonoBehaviour
 {
     public delegate void MMEventHandler();
-    public delegate void MMCubicHandler(Cubic c);
-    public delegate void MMSelectedCubiHandler(int id);
+    public delegate void MMCubicHandler(int id);
 
-
-    public event MMCubicHandler EventSelectCubic;
-
-    public event MMSelectedCubiHandler EventSelectedWorld;
 
     public MMEventHandler EventOpenGame;
 
+    public event MMCubicHandler EventSelectCubic;
+    public event MMCubicHandler EventWorldOnFocus;
 
-    public void CallEventSelectCubic(Cubic c)
+    public void CallEventSelectCubic(int id)
     {
         if (EventSelectCubic != null)
         {
-            EventSelectCubic(c);
+            EventSelectCubic(id);
         }
     }
 
-    public void CallEventSelectedWorld(int id)
+    public void CallEventWorldOnFocus(int id)
     {
-        if (EventSelectedWorld != null)
+        if (EventWorldOnFocus != null)
         {
-            EventSelectedWorld(id);
+            EventWorldOnFocus(id);
         }
     }
 

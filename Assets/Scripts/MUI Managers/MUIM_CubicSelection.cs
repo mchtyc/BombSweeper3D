@@ -9,9 +9,7 @@ public class MUIM_CubicSelection : MonoBehaviour
     public Transform Contents;
     public MM_Events MM_Events;
     public GridLayoutGroup GLayout;
-    public RectTransform RTrans;
     public GameData gameData;
-    public DataFlow dataFlow;
 
     float spacing = 50f;
 
@@ -25,29 +23,31 @@ public class MUIM_CubicSelection : MonoBehaviour
         MM_Events.EventSelectCubic -= OpenCubic;
     }
 
-    public void OpenCubic(Cubic cubic)
+    public void OpenCubic(int id)
     {
-        if (cubic.Open)
+        CubicData cubicData = DataFlow.instance.cubicDatas[id - 1];
+
+        if (gameData.lastOpenedWorld <= id)
         {
             MM_Enums.SetMenuPage(MenuPage.LevelPage);
-            gameData.selectedWorld = cubic.ID;
+            gameData.selectedWorld = id;
 
-            StartCoroutine(InstantiateLevelBtns(cubic));
+            StartCoroutine(InstantiateLevelBtns(cubicData));
         }
-    }    
+    }
 
-    IEnumerator InstantiateLevelBtns(Cubic cubic)
+    IEnumerator InstantiateLevelBtns(CubicData cubicData)
     {
         float cellSize = ((Screen.width * 92f / 100f) - (spacing * 6f)) / 5f;
         GLayout.cellSize = new Vector2(cellSize, cellSize);
         
-        for (int i = 0; i < cubic.LevelCount; i++)
+        for (int i = 0; i < cubicData.starCounts.Length; i++)
         {
             Button btn = Instantiate(levelBtn, Contents).GetComponent<Button>();
             int level = i + 1;
             btn.GetComponentInChildren<Text>().text = "Level " + (level);
 
-            if (dataFlow.cubicDatas[cubic.ID - 1].lastOpenedLevel <= i)
+            if (cubicData.lastOpenedLevel <= i)
             {
                 btn.interactable = false;
             }
@@ -57,7 +57,7 @@ public class MUIM_CubicSelection : MonoBehaviour
                 {
                     btn.transform.GetChild(j).gameObject.SetActive(true);
 
-                    if (cubic.cubicData.starCounts[i] >= j)
+                    if (cubicData.starCounts[i] >= j)
                     {
                         btn.transform.GetChild(j).gameObject.GetComponent<Image>().color = Color.white;
                     }
@@ -81,7 +81,7 @@ public class MUIM_CubicSelection : MonoBehaviour
     void OnClickLevelBtn(int level)
     {
         gameData.selectedLevel = level;
-        MM_Enums.SetMenuPage(MenuPage.WorldPage);
-        MM_Events.CallEventOpenGame();
+        MM_Enums.SetMenuPage(MenuPage.WorldPage);   // Cubic leri silince burası levelPage de kalmalı ve 
+        MM_Events.CallEventOpenGame();              // oyun oynanıp geri gelince burası direk açılmalı
     }
 }

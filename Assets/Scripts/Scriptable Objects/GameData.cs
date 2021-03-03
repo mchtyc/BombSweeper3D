@@ -8,7 +8,7 @@ public class GameData : ScriptableObject
     public GameObject gamePrefab;
     public Sprite targetSprite;
     public float duration, stamina;
-    public int targetCount, selectedWorld, lastOpenedWorld, selectedLevel, boosterCount, worldCount;
+    public int targetCount, selectedWorld, lastOpenedWorld, selectedLevel, boosterCount;
     public bool isPlayed;
 
     // Bölümü oynadıktan sonra geri döndürülecek yıldız sayısı puan... gibi bilgiler
