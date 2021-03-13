@@ -10,7 +10,7 @@ public class GM_Board : MonoBehaviour
 
     public GameData gameData;
 
-    int possiblity = 10;
+    int possiblity = 6;
     int targetCount;
 
     private void Start()

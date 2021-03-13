@@ -21,6 +21,9 @@ public class UIM_GameOver : MonoBehaviour
     public void OnGameOver()
     {
         GM_Enums.ChangeGameState(GameStates.Nonclickable);
+
+        TestSaveManager.instance.testSave.status = Status.Fail;
+
         GOPanel.SetActive(true);
         GM_Events.CallEventPauseGame();
     }

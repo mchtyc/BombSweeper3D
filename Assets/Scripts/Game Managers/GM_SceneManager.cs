@@ -16,4 +16,10 @@ public class GM_SceneManager : MonoBehaviour
     {
         SceneManager.LoadScene((int)Scenes.MenuScene);
     }
+
+    public void SaveAndOpenMenu()
+    {
+        TestSaveManager.instance.Save();
+        SceneManager.LoadScene((int)Scenes.MenuScene);
+    }
 }

@@ -8,11 +8,18 @@ public class DataManager : MonoBehaviour
 {
 	public GameData gameData;
 	string dataPath;
+	public static DataManager instance; 
 
 	void Awake()
 	{
+		instance = this;
 		dataPath = Application.persistentDataPath + "/gameData.dat";
 		LoadFromLocal();
+	}
+
+	private void OnDisable()
+	{
+		SaveAllGameDatas();
 	}
 
 	public void SaveToLocal()
@@ -25,7 +32,7 @@ public class DataManager : MonoBehaviour
 		FileStream file = File.Create(dataPath);
 		bf.Serialize(file, dataClone);
 		file.Close();
-		LoadFromLocal();
+		//LoadFromLocal();
 	}
 
 	public void SaveToLocal(int id)
@@ -92,20 +99,25 @@ public class DataManager : MonoBehaviour
 	{
 		GameDataClone dataClone = new GameDataClone();
 
-		dataClone.lastOpenedWorld = gameData.lastOpenedWorld;
-		dataClone.boosterCount = gameData.boosterCount;
+		dataClone.lastOpenedWorld = gameData.GetLastOpenedWorld();
+		dataClone.boosterCount = gameData.GetBoosterCount();
 
 		return dataClone;
 	}
 
 	void LoadFromClone(GameDataClone dataClone)
 	{
-		gameData.lastOpenedWorld = dataClone.lastOpenedWorld;
-		gameData.boosterCount = dataClone.boosterCount;
-	}		
+		gameData.SetLastOpenedWorld(dataClone.lastOpenedWorld);
+		gameData.SetBoosterCount(dataClone.boosterCount);
+	}
 
-	void OnDestroy()
+	void SaveAllGameDatas()
 	{
-		//SaveToLocal();
+		SaveToLocal();
+
+		for (int i = 1; i <= gameData.GetLastOpenedWorld(); i++)
+		{
+			SaveToLocal(i);
+		}
 	}
 }

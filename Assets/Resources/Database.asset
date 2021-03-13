@@ -23,49 +23,49 @@ MonoBehaviour:
       type: 3}
     levels:
     - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
-      targetCount: 11
+      targetCount: 3
       duration: 300
-      stamina: 50
-    - targetSprite: {fileID: 21300000, guid: da232762f68edfe4d9e72ec7407de379, type: 3}
-      targetCount: 12
-      duration: 250
-      stamina: 40
-    - targetSprite: {fileID: 21300000, guid: 1ca8d81f18e41ff48923bc4786849bbe, type: 3}
-      targetCount: 13
-      duration: 200
-      stamina: 30
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
-    - targetSprite: {fileID: 0}
-      targetCount: 0
-      duration: 0
-      stamina: 0
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 5
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 7
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 10
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 15
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 20
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 25
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 30
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 35
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 40
+      duration: 300
+      stamina: 100
+    - targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
+      targetCount: 56
+      duration: 300
+      stamina: 100
   - id: 2
     worldName: World 2
     menuPrefabOpened: {fileID: 8225203381516778230, guid: 532b924ec27ebf644875a551a2a4b058,

@@ -13,7 +13,6 @@ public class UIM_Timer : MonoBehaviour
 
     Coroutine runTimer;
     float startedTime, remainingTime, idleTime, stoppingTime, totalTime;
-    int starCount;
 
 
     private void OnEnable()
@@ -47,6 +46,7 @@ public class UIM_Timer : MonoBehaviour
             remainingTime = Time.time - startedTime - idleTime;
             float fAmount = (totalTime - remainingTime) / totalTime;
             fillImage.fillAmount = fAmount;
+            TestSaveManager.instance.testSave.timeSpend = remainingTime;
 
             if (fAmount <= 0.7f && !thirdStarDropped)
             {

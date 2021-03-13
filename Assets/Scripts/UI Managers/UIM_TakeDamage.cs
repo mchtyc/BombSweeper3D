@@ -27,7 +27,8 @@ public class UIM_TakeDamage : MonoBehaviour
     public void OnTakeDamage(int damage)
     {
         health -= damage;
-        
+        TestSaveManager.instance.testSave.staminaUsed = totalStamina - health;
+
         if (health <= 0f)
         {
             health = 0f;

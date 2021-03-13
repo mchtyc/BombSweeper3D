@@ -27,10 +27,11 @@ public class MUIM_CubicSelection : MonoBehaviour
     {
         CubicData cubicData = DataFlow.instance.cubicDatas[id - 1];
 
-        if (gameData.lastOpenedWorld <= id)
+        if (gameData.GetLastOpenedWorld() >= id)
         {
             MM_Enums.SetMenuPage(MenuPage.LevelPage);
             gameData.selectedWorld = id;
+
 
             StartCoroutine(InstantiateLevelBtns(cubicData));
         }
@@ -41,13 +42,13 @@ public class MUIM_CubicSelection : MonoBehaviour
         float cellSize = ((Screen.width * 92f / 100f) - (spacing * 6f)) / 5f;
         GLayout.cellSize = new Vector2(cellSize, cellSize);
         
-        for (int i = 0; i < cubicData.starCounts.Length; i++)
+        for (int i = 0; i < cubicData.LevelCount; i++)
         {
             Button btn = Instantiate(levelBtn, Contents).GetComponent<Button>();
             int level = i + 1;
             btn.GetComponentInChildren<Text>().text = "Level " + (level);
 
-            if (cubicData.lastOpenedLevel <= i)
+            if (cubicData.LastOpenedLevel <= i)
             {
                 btn.interactable = false;
             }
@@ -57,7 +58,7 @@ public class MUIM_CubicSelection : MonoBehaviour
                 {
                     btn.transform.GetChild(j).gameObject.SetActive(true);
 
-                    if (cubicData.starCounts[i] >= j)
+                    if (cubicData.GetStarCounts(i + 1) >= j)
                     {
                         btn.transform.GetChild(j).gameObject.GetComponent<Image>().color = Color.white;
                     }

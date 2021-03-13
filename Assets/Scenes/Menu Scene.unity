@@ -608,7 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
   dataManager: {fileID: 927763871}
-  menuManager: {fileID: 1702628158}
   cubicDatas: []
 --- !u!4 &927763870
 Transform:
@@ -846,7 +845,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 50
+  m_FontSize: 40
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}

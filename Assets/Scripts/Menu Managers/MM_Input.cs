@@ -12,13 +12,6 @@ public class MM_Input : MonoBehaviour
     bool moving;
     int selectedWorld;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
         if(MM_Enums.GetMenuPage() == MenuPage.WorldPage)

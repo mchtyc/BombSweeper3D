@@ -16,13 +16,10 @@ MonoBehaviour:
     type: 3}
   targetSprite: {fileID: 21300000, guid: 5eb824a310667d34ababf8c96075db56, type: 3}
   duration: 300
-  stamina: 50
-  targetCount: 11
+  stamina: 100
+  targetCount: 0
   selectedWorld: 1
-  lastOpenedWorld: 1
   selectedLevel: 1
+  lastOpenedWorld: 1
   boosterCount: 3
-  worldCount: 5
-  lastOpenedLevels: 0100000000000000000000000000000000000000
-  isPlayed: 0
-  starCount: 3
+  starCount: 0

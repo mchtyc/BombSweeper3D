@@ -6,5 +6,4 @@ using UnityEngine;
 public class GameDataClone
 {
     public int lastOpenedWorld, boosterCount;
-    //public int[] lastOpenedLevels;
 }

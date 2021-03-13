@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Time.timeScale = 1f;    // Daha güzel bir çözüm bulunmalı
         levelsPage.SetActive(false);
         cover.SetActive(true);
 
@@ -42,7 +43,7 @@ public class MenuManager : MonoBehaviour
         foreach (World world in gameDatabase.Worlds)
         {
             Transform parent = Cubics.GetChild(index);
-            if (gameData.lastOpenedWorld > index)
+            if (gameData.GetLastOpenedWorld() > index)
             {
                 Cubic cubic = Instantiate(world.MenuPrefabOpened, parent).GetComponent<Cubic>();
                 cubic.InitData(world.ID);
@@ -56,8 +57,8 @@ public class MenuManager : MonoBehaviour
         }
         
         // Translate cubics to last opened or selected world so it will be in front of the camera
-        TranslateCubic(gameData.lastOpenedWorld);
-        WriteWorldName(gameData.lastOpenedWorld);
+        TranslateCubic(gameData.GetLastOpenedWorld());
+        WriteWorldName(gameData.GetLastOpenedWorld());
     }
 
     public void TranslateCubic(int selectedWorld)

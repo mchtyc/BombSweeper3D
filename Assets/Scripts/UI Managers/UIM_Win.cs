@@ -24,8 +24,9 @@ public class UIM_Win : MonoBehaviour
     {
         GM_Enums.ChangeGameState(GameStates.Nonclickable);
         gameData.starCount = GM.StarCount;
-        gameData.isPlayed = true;
+        TestSaveManager.instance.testSave.status = Status.Pass;
         WinPanel.SetActive(true);
         GM_Events.CallEventPauseGame();
     }
 }
+    

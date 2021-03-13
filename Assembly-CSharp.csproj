@@ -64,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Test\Test_NarsistikSayilar.cs" />
-    <Compile Include="Assets\_Test\TestManager.cs" />
+    <Compile Include="Assets\_Test\TestSaveData.cs" />
+    <Compile Include="Assets\_Test\TestSaveManager.cs" />
     <Compile Include="Assets\Booster.cs" />
     <Compile Include="Assets\Booster1.cs" />
     <Compile Include="Assets\GM_Boosters.cs" />
+    <Compile Include="Assets\GM_LevelEnd.cs" />
     <Compile Include="Assets\Scripts\Cubic.cs" />
     <Compile Include="Assets\Scripts\CubicData.cs" />
     <Compile Include="Assets\Scripts\DataFlow.cs" />
