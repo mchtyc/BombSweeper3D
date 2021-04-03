@@ -5,14 +5,10 @@ using UnityEngine;
 public class GM_Events : MonoBehaviour
 {
     public delegate void EventHandler();
-    public delegate void EventDamageHandler(int damage);
+    public delegate void EventDamageHandler(int damage, Vector3 pos);
     public delegate void EventBoosterHandler(GameObject booster);
 
 
-    public event EventHandler EventTileFirstHit;
-    public event EventHandler EventTileSecondHit;
-
-    public event EventHandler EventCountDownFinished;
 
     public event EventHandler EventDecreaseTargetCount;
 
@@ -30,29 +26,8 @@ public class GM_Events : MonoBehaviour
 
     public event EventDamageHandler EventTakeDamage;
 
-    public void CallEventTileFirstHit()
-    {
-        if (EventTileFirstHit != null)
-        {
-            EventTileFirstHit();
-        }
-    }
+    public event EventHandler EventReadyToPlay;
 
-    public void CallEventTileSecondHit()
-    {
-        if (EventTileSecondHit != null)
-        {
-            EventTileSecondHit();
-        }
-    }
-
-    public void CallEventCountDownFinished()
-    {
-        if (EventCountDownFinished != null)
-        {
-            EventCountDownFinished();
-        }
-    }
 
     public void CallEventDecreaseTargetCount()
     {
@@ -70,11 +45,11 @@ public class GM_Events : MonoBehaviour
         }
     }
 
-    public void CallEventTakeDamage(int damage)
+    public void CallEventTakeDamage(int damage, Vector3 pos)
     {
         if (EventTakeDamage != null)
         {
-            EventTakeDamage(damage);
+            EventTakeDamage(damage, pos);
         }
     }
 
@@ -123,6 +98,14 @@ public class GM_Events : MonoBehaviour
         if (EventStarCountChange != null)
         {
             EventStarCountChange();
+        }
+    }
+
+    public void CallEventReadyToPlay()
+    {
+        if(EventReadyToPlay != null)
+        {
+            EventReadyToPlay();
         }
     }
 }

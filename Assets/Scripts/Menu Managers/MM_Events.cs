@@ -12,6 +12,7 @@ public class MM_Events : MonoBehaviour
 
     public event MMCubicHandler EventSelectCubic;
     public event MMCubicHandler EventWorldOnFocus;
+    public event MMEventHandler EventWorldUnfocus;
 
     public void CallEventSelectCubic(int id)
     {
@@ -26,6 +27,14 @@ public class MM_Events : MonoBehaviour
         if (EventWorldOnFocus != null)
         {
             EventWorldOnFocus(id);
+        }
+    }
+
+    public void CallEventWorldUnfocus()
+    {
+        if (EventWorldUnfocus != null)
+        {
+            EventWorldUnfocus();
         }
     }
 

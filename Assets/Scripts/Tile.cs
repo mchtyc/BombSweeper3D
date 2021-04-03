@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class Tile : MonoBehaviour
 {
@@ -11,21 +9,16 @@ public class Tile : MonoBehaviour
     public TextMeshPro numberText;
     public MeshRenderer tileFront, tileBack;
     public Color normalColor, countDownColor, openedColor;
-    //[HideInInspector]
+    
     public int number;
-    //[HideInInspector]
+    
     public bool unplacable, opened;
-    GM_Events GM_Events;
+    GM_Events gm_Events;
 
-    private void OnEnable()
+    void Start()
     {
         tileFront.material.color = normalColor;
-        GM_Events = GameObject.FindGameObjectWithTag("Managers").GetComponent<GM_Events>();
-    }
-
-    private void OnDisable()
-    {
-
+        gm_Events = GameObject.FindGameObjectWithTag("Managers").GetComponent<GM_Events>();
     }
 
     private void LateUpdate()
@@ -70,10 +63,11 @@ public class Tile : MonoBehaviour
         {
             // Game Over
             frontObject.SetActive(false);
-            GM_Events.CallEventGameOver();
+            gm_Events.CallEventGameOver();
         }
         else if (number > 0)
         {
+            // Open tile with number
             tileFront.material.color = openedColor;
             numberText.text = number.ToString();
         }
@@ -90,13 +84,18 @@ public class Tile : MonoBehaviour
         {
             // 1 of the targets is found
             frontObject.SetActive(false);
-            GM_Events.CallEventDecreaseTargetCount();
+            gm_Events.CallEventDecreaseTargetCount();
         }
         else
         {
-            // Take Damage
-            frontObject.SetActive(false);
-            GM_Events.CallEventTakeDamage(number);
+            // Take Damage      // Damage aldığında damage kadar sayı havada uçuşsun ve cubic sallansın
+            //frontObject.SetActive(false);
+            tileFront.material.color = openedColor;
+            numberObject.SetActive(true);
+            numberText.color = Color.red;
+            numberText.text = number.ToString();
+
+            gm_Events.CallEventTakeDamage(number, transform.position);
         }
     }
 

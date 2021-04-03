@@ -5,12 +5,22 @@ using UnityEngine;
 public class MM_Input : MonoBehaviour
 {
     public MM_Events MM_Events;
+    public GameData gameData;
     public Transform menu;
     public float dragSpeed, idleSpeed, minDrag;
 
-    Vector3 pos1, diff, initialPos;
+    Cubic currentCubic;
+    Vector3 pos1, diff, initialPos, screenCenter;
     bool moving;
     int selectedWorld;
+
+    void Start()
+    {
+        screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, -40f);
+        selectedWorld = gameData.GetLastOpenedWorld();
+        currentCubic = DefineSelectedCube(screenCenter);
+        currentCubic.StartAnimation();
+    }
 
     void LateUpdate()
     {
@@ -34,32 +44,49 @@ public class MM_Input : MonoBehaviour
 
             if(!moving && Mathf.Abs(initialPos.x - Input.mousePosition.x) > minDrag)
             {
+                if(currentCubic != null)
+                {
+                    currentCubic.StopAnimation();
+                }
+                
                 moving = true;
+                selectedWorld = 0;
+                MM_Events.CallEventWorldUnfocus();
             }
 
-            if(moving)
+            if(moving) 
             {
                 menu.Translate(diff.x * dragSpeed, 0f, 0f);
 
-                RestrictPositions();
+                RestrictPositions(); 
             }
         }
         else if (Input.GetMouseButtonUp(0))
         {
             if(!moving)
             {
-                Cubic cubic = DefineSelectedCube();
+                Cubic cubic = DefineSelectedCube(Input.mousePosition);
                 
-                if (cubic != null)
+                if (cubic != null && cubic.ID == selectedWorld)
                 {
+                    StartCoroutine(WorldPressAnimation(cubic.gameObject.transform));
                     OpenCubic(cubic.ID);
                 }
             }
             else
             {
                 StartCoroutine(DragCubics(diff.x));
-                moving = false;
             }
+        }
+    }
+
+    IEnumerator WorldPressAnimation(Transform world)
+    {
+        for(int i = -4; i < 4; i++)
+        {
+            float scaleFactor = i / 40f;
+            world.localScale = world.localScale - new Vector3(scaleFactor, scaleFactor, scaleFactor);
+            yield return null;
         }
     }
 
@@ -84,18 +111,26 @@ public class MM_Input : MonoBehaviour
             menu.position = new Vector3(Mathf.Lerp(menu.position.x, finalX, (float)i / 10f), 0f, 0f);
             yield return null;
         }
+
+        currentCubic = DefineSelectedCube(screenCenter);
+        if(currentCubic != null)
+        {
+            currentCubic.StartAnimation();
+        }
+        
+        moving = false;
         MM_Events.CallEventWorldOnFocus(selectedWorld);
     }
 
     void RestrictPositions()
     {
-        if (menu.position.x > 15f)
+        if (menu.position.x > 5f)
         {
-            menu.position = new Vector3(15f, 0f, 0f);
+            menu.position = new Vector3(5f, 0f, 0f);
         }
-        else if (menu.position.x < -95f)
+        else if (menu.position.x < -85f)
         {
-            menu.position = new Vector3(-95f, 0f, 0f);
+            menu.position = new Vector3(-85f, 0f, 0f);
         }
     }
 
@@ -133,9 +168,9 @@ public class MM_Input : MonoBehaviour
         return finalValue;
     }
 
-    Cubic DefineSelectedCube()
+    Cubic DefineSelectedCube(Vector3 coordinate)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(coordinate);
         RaycastHit hit;
         bool isDetected = false;
 

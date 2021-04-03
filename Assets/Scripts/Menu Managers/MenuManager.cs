@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject levelsPage, cover;
     public Transform Cubics;
     public MM_Events MM_Events;
-    public TextMesh worldNameText;
+    public TextMeshProUGUI worldNameText;
 
     public GameData gameData;
     public Database gameDatabase;
@@ -15,7 +16,8 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Time.timeScale = 1f;    // Daha güzel bir çözüm bulunmalı
+        Time.timeScale = 1f;
+        MM_Enums.SetMenuPage(MenuPage.WorldPage);
         levelsPage.SetActive(false);
         cover.SetActive(true);
 
@@ -27,12 +29,14 @@ public class MenuManager : MonoBehaviour
     private void OnEnable()
     {
         MM_Events.EventWorldOnFocus += WriteWorldName;
+        MM_Events.EventWorldUnfocus += UnfocusWorld;
         MM_Events.EventOpenGame += LoadData;
     }
 
     private void OnDisable()
     {
         MM_Events.EventWorldOnFocus -= WriteWorldName;
+        MM_Events.EventWorldUnfocus -= UnfocusWorld;
         MM_Events.EventOpenGame -= LoadData;
     }
 
@@ -68,7 +72,15 @@ public class MenuManager : MonoBehaviour
 
     public void WriteWorldName(int selectedWorld)
     {
+        worldNameText.transform.parent.gameObject.SetActive(false);
         worldNameText.text = selectedWorld + ". " + gameDatabase.Worlds[selectedWorld - 1].WorldName;
+        worldNameText.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void UnfocusWorld()
+    {
+        //worldNameText.transform.parent.gameObject.SetActive(false);
+        worldNameText.transform.parent.gameObject.GetComponent<Animator>().SetTrigger("worldNameOut");
     }
 
     public void LoadData()
@@ -82,4 +94,6 @@ public class MenuManager : MonoBehaviour
         gameData.stamina = level.Stamina;
         gameData.targetCount = level.TargetCount;
     }
+
+    
 }

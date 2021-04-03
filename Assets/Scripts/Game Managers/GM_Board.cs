@@ -10,7 +10,6 @@ public class GM_Board : MonoBehaviour
 
     public GameData gameData;
 
-    int possiblity = 6;
     int targetCount;
 
     private void Start()
@@ -23,41 +22,20 @@ public class GM_Board : MonoBehaviour
     {
         int unplacableCount = firstClick.MakeAroundUnplacable();
 
-        List<Tile> allTiles = GetTiles();
-        int tileRemain = allTiles.Count - unplacableCount;
-
         // Placing Targets
-        foreach(Tile t in allTiles)
+        List<Tile> allTiles = GetTiles();
+        int totalCount = allTiles.Count;
+
+        int firstIndex = 0, lastIndex = 0;
+
+        for (int i = 1; i <= targetCount; i++)
         {
-            if (t.unplacable)
-            {
-                continue;
-            }
+            lastIndex = (totalCount  * i) / targetCount;
 
-            if (targetCount > 0)
-            {
-                if (tileRemain > targetCount)
-                {
-                    if (Random.Range(0, possiblity) == 0)
-                    {
-                        PutTarget(t);
-                    }
-                }
-                else if (tileRemain == targetCount)
-                {
-                    PutTarget(t);
-                }
-                else
-                {
-                    Debug.LogError("Not enough tiles to handle target count!");
-                }
-            }
-            else
-            {
-                break;
-            }
-
-            tileRemain--;
+            int place = Random.Range(firstIndex, lastIndex);
+            PutTarget(allTiles[place]);
+            
+            firstIndex = lastIndex;
         }
 
         // Opening FirstClick
@@ -72,7 +50,6 @@ public class GM_Board : MonoBehaviour
 
     void PutTarget(Tile t)
     {
-        targetCount--;
         t.PutTarget();
     }
 
@@ -84,7 +61,10 @@ public class GM_Board : MonoBehaviour
         {
             for (int j = 0; j < shape.GetChild(i).childCount; j++)
             {
-                allTiles.Add(shape.GetChild(i).GetChild(j).GetComponent<Tile>());
+                if (!shape.GetChild(i).GetChild(j).GetComponent<Tile>().unplacable)
+                {
+                    allTiles.Add(shape.GetChild(i).GetChild(j).GetComponent<Tile>());
+                }
             }
         }
 

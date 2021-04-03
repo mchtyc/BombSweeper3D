@@ -9,9 +9,15 @@ public class MUIM_BtnClicks : MonoBehaviour
 
     public void OnClickLevelsBack()
     {
-        DestroyOldButtons();
+        StartCoroutine(MenuClosingDelay());
+    }
+
+    IEnumerator MenuClosingDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
         MM_Enums.SetMenuPage(MenuPage.WorldPage);
         LevelsBG.SetActive(false);
+        DestroyOldButtons();
     }
 
     void DestroyOldButtons()

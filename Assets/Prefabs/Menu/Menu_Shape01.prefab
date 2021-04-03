@@ -8745,6 +8745,7 @@ GameObject:
   - component: {fileID: 8225203381516778231}
   - component: {fileID: 1454793348893367696}
   - component: {fileID: 1454793348893367697}
+  - component: {fileID: 3193106294540649413}
   m_Layer: 0
   m_Name: Menu_Shape01
   m_TagString: Untagged
@@ -8798,7 +8799,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f19aa69cb81ce04d849472f0cfacc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameData: {fileID: 11400000, guid: c2f6c13477d793e4a953405c59d70cd0, type: 2}
+  _animator: {fileID: 3193106294540649413}
+--- !u!95 &3193106294540649413
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225203381516778230}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15509b8da3097f04d9543b8650467a16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8225203381566342650
 GameObject:
   m_ObjectHideFlags: 0

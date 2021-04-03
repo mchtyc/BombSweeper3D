@@ -4,42 +4,52 @@ using UnityEngine;
 
 public class GM_Input : MonoBehaviour
 {
-    public GM_Events GM_Events;
+    public GM_Events gm_Events;
     public GM_Board GM_Board;
     public GM_Boosters GM_Boosters;
     public Transform Shape;
 
-    public float zoomSpeed, minScale, minTurnAngle,turnSpeed, rotateSpeed;
+    public float zoomSpeed, minScale, minTurnAngle, turnSpeed, rotateSpeed, doubleClickDuration;
 
     Tile activeTile;
-    bool isFirstHit, isSingleTouch = true, rotating;
+    bool isFirstHit, isSingleTouch = true, rotating, isGameReady = false;
     float touchDiff1;
     Vector3 prevMousePos, initialMousePos, shapePos, playgroundPos;
+    Coroutine countdownCoroutine;
 
-    private void OnEnable()
+    void OnEnable()
     {
-        GM_Events.EventCountDownFinished += OnCountDownFinished;
+        gm_Events.EventReadyToPlay += ReadyToPlay;
     }
 
-    private void Start()
+    void OnDisable()
+    {
+        gm_Events.EventReadyToPlay -= ReadyToPlay;
+
+    }
+
+    void Start()
     {
         Shape = GameObject.FindGameObjectWithTag("Cubic").transform;
         shapePos = Shape.position;
         playgroundPos = Shape.parent.position;
     }
 
-    private void OnDisable()
+    // Update is called once per frame
+    void Update()
     {
-        GM_Events.EventCountDownFinished -= OnCountDownFinished;
+        if (isGameReady)
+        {
+            GetInput();
+        } 
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    void GetInput()
     {
 #if UNITY_EDITOR
         OneFinger();
 #endif
-        
+
         if (Input.touchCount == 1)
         {
             if (isSingleTouch)
@@ -179,7 +189,7 @@ public class GM_Input : MonoBehaviour
     {
         isFirstHit = true;
         t.ChangeHitColor();
-        GM_Events.CallEventTileFirstHit();
+        StartDoubleClickCountDown();
         activeTile = t;
     }
 
@@ -188,10 +198,33 @@ public class GM_Input : MonoBehaviour
         if (t == activeTile)
         {
             t.OpenTile(2);
-            GM_Events.CallEventTileSecondHit();
+            FinishDoubleClickCountDown();
             isFirstHit = false;
             activeTile = null;
         }
+    }
+
+    public void StartDoubleClickCountDown()
+    {
+        countdownCoroutine = StartCoroutine(IStartDoubleClickCountDown(doubleClickDuration));
+    }
+
+    public void FinishDoubleClickCountDown()
+    {
+        StopCoroutine(countdownCoroutine);
+    }
+
+    IEnumerator IStartDoubleClickCountDown(float counter)
+    {
+        while (counter > 0f)
+        {
+            counter -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        OnCountDownFinished();
+        FinishDoubleClickCountDown();
     }
 
     private void FirstSelection(Tile t)
@@ -225,7 +258,7 @@ public class GM_Input : MonoBehaviour
         } 
     }
 
-    public void OnCountDownFinished()
+    void OnCountDownFinished()
     {
         activeTile.OpenTile(1);
         activeTile = null;
@@ -256,5 +289,10 @@ public class GM_Input : MonoBehaviour
         Shape.parent.RotateAround(Shape.GetChild(0).position, Vector3.right, -difference.y * rotateSpeed);
 
         prevMousePos = Input.mousePosition;
+    }
+
+    public void ReadyToPlay()
+    {
+        isGameReady = true;
     }
 }

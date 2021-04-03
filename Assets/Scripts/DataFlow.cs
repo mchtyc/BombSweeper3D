@@ -48,4 +48,28 @@ public class DataFlow : MonoBehaviour
         cubicDatas.Add(cubicData);
         dataManager.LoadFromLocal(cubicData.ID);
     }
+
+    // TODO: Oynanan world son açılan değilse yeni dünya açmamalı
+    public void OnWin(int starCount)
+    {
+        CubicData world = cubicDatas[gameData.selectedWorld - 1];
+
+        if ( world.GetStarCounts(gameData.selectedLevel) < starCount)
+        {
+            world.SetStarCounts(gameData.selectedLevel, starCount);
+        }
+
+        if (world.LastOpenedLevel == gameData.selectedLevel && gameData.GetLastOpenedWorld() == gameData.selectedWorld)
+        {
+            if (world.LastOpenedLevel == world.LevelCount)
+            {
+                gameData.SetLastOpenedWorld(gameData.GetLastOpenedWorld() + 1);
+                OpenNewWorld();
+            }
+            else
+            {
+                world.LastOpenedLevel++;
+            }
+        }
+    }
 }
