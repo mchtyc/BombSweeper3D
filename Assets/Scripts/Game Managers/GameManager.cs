@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GM_Events GM_Events;
+    public GM_SceneManager gM_SceneManager;
     public Transform playground;
     public GameData gameData;
     
     public int StarCount { get; private set; }
 
     DataFlow dataFlow;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +29,13 @@ public class GameManager : MonoBehaviour
         {
             dataFlow = GameObject.FindGameObjectWithTag("Data").GetComponent<DataFlow>();
         }
+
+        // Development purpose: Opening menu scene even if game started from game scene
+        // Does NOT effect release build
+        if (dataFlow == null)
+        {
+            TestOpenMenuScene();
+        }
     }
 
     void OnEnable()
@@ -45,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
+        Time.timeScale = 1;
         StarCount = 3;
 
         // Instantiating the shape
@@ -59,5 +67,10 @@ public class GameManager : MonoBehaviour
     public void OnWin()
     {
         dataFlow.OnWin(StarCount);
+    }
+
+    void TestOpenMenuScene()
+    {
+        gM_SceneManager.OpenMenu();
     }
 }

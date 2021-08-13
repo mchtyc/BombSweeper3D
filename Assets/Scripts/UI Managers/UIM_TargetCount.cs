@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIM_TargetCount : MonoBehaviour
 {
+    public Animator _animator;
     public GM_Events GM_Events;
     public Image targetImage;
     public GameData gameData;
@@ -12,6 +13,7 @@ public class UIM_TargetCount : MonoBehaviour
     public Text targetCountdown;
 
     int amount;
+    string targetFoundAnimationTrigger = "found";
 
     private void OnEnable()
     {
@@ -30,13 +32,26 @@ public class UIM_TargetCount : MonoBehaviour
     public void ChangeTargetCount()
     {
         amount--;
-        WriteTargetCount();
+        PlayAnimation();
+        Invoke("WriteTargetCount", 0.5f);
+        
         CheckWinnigCondition();
     }
 
     void WriteTargetCount() 
     {
         targetCountdown.text = amount.ToString();
+    }
+
+    void PlayAnimation()
+    {
+        _animator.SetTrigger(targetFoundAnimationTrigger);
+        //Invoke("StopAnimation", 1f);
+    }
+
+    void StopAnimation()
+    {
+        _animator.enabled = false;
     }
 
     void CheckWinnigCondition()

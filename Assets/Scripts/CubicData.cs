@@ -5,8 +5,6 @@ using UnityEngine;
 [Serializable]
 public class CubicData
 {
-    //TODO: Change all fields with Properties and if any changes made Save immediatly
-
     int[] starCounts;
     int lastOpenedLevel;
     int levelAmount;
@@ -31,14 +29,12 @@ public class CubicData
         starCounts = new int[levelCount];
         ID = id;
         lastOpenedLevel = 1;
-        
     }
 
     public void SetStarCounts(int level, int count)
     {
         starCounts[level - 1] = count;
         DataManager.instance.SaveToLocal(ID);
-        
     }
 
     public int GetStarCounts(int level)

@@ -6,8 +6,8 @@ public class GM_Events : MonoBehaviour
 {
     public delegate void EventHandler();
     public delegate void EventDamageHandler(int damage, Vector3 pos);
+    public delegate void EventTargetHandler(Vector3 pos);
     public delegate void EventBoosterHandler(GameObject booster);
-
 
 
     public event EventHandler EventDecreaseTargetCount;
@@ -25,6 +25,8 @@ public class GM_Events : MonoBehaviour
     public event EventHandler EventStarCountChange;
 
     public event EventDamageHandler EventTakeDamage;
+
+    public event EventTargetHandler EventTargetFound;
 
     public event EventHandler EventReadyToPlay;
 
@@ -50,6 +52,14 @@ public class GM_Events : MonoBehaviour
         if (EventTakeDamage != null)
         {
             EventTakeDamage(damage, pos);
+        }
+    }
+
+    public void CallEventTargetFound(Vector3 pos)
+    {
+        if (EventTargetFound != null)
+        {
+            EventTargetFound(pos);
         }
     }
 

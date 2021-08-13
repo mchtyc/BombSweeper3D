@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
         gm_Events = GameObject.FindGameObjectWithTag("Managers").GetComponent<GM_Events>();
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         numberObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
         targetObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
@@ -85,11 +85,12 @@ public class Tile : MonoBehaviour
             // 1 of the targets is found
             frontObject.SetActive(false);
             gm_Events.CallEventDecreaseTargetCount();
+            gm_Events.CallEventTargetFound(transform.position);
         }
         else
         {
-            // Take Damage      // Damage aldığında damage kadar sayı havada uçuşsun ve cubic sallansın
-            //frontObject.SetActive(false);
+            // Take Damage
+            
             tileFront.material.color = openedColor;
             numberObject.SetActive(true);
             numberText.color = Color.red;

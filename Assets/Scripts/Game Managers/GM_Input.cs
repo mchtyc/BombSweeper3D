@@ -136,7 +136,6 @@ public class GM_Input : MonoBehaviour
             float touchDiff2 = Vector2.Distance(t1.position, t2.position);
 
             float d = (touchDiff2 - touchDiff1) * zoomSpeed;
-            Debug.Log("Zooming: " + touchDiff2 + " - " + touchDiff1 + " = " + d);
 
             if (Mathf.Abs(touchDiff2 - touchDiff1) > minScale)
             {
@@ -165,7 +164,8 @@ public class GM_Input : MonoBehaviour
 
                 Vector3 rotationDeg = Vector3.zero;
                 rotationDeg.z = turnAngleDelta;
-                Shape.parent.rotation *= Quaternion.Euler(rotationDeg);
+                //Shape.parent.rotation *= Quaternion.Euler(rotationDeg);
+                Shape.parent.Rotate(Vector3.forward, turnAngleDelta, Space.World);
             }
         }
     }

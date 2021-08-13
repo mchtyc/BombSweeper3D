@@ -1,25 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public enum Scenes { MenuScene, GameScene } // Sahnelerin hepsi belirlenince sıralanacak..!!
-
-public class GM_SceneManager : MonoBehaviour
+public class GM_SceneManager : SceneController
 {
+    public GameData gameData;
+
     public void RestartGame()
     {
-        SceneManager.LoadScene((int)Scenes.GameScene);
+        LoadScene((int)Scenes.GameScene);
     }
 
     public void OpenMenu()
     {
-        SceneManager.LoadScene((int)Scenes.MenuScene);
+        LoadScene((int)Scenes.MenuScene);
+    }
+
+    public void OpenNextLevel()
+    {
+        // Burada diğer bölüm seçilecek
+
+        LoadScene((int)Scenes.GameScene);
     }
 
     public void SaveAndOpenMenu()
     {
         TestSaveManager.instance.Save();
-        SceneManager.LoadScene((int)Scenes.MenuScene);
+        LoadScene((int)Scenes.MenuScene);
     }
 }

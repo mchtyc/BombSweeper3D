@@ -94,6 +94,4 @@ public class MenuManager : MonoBehaviour
         gameData.stamina = level.Stamina;
         gameData.targetCount = level.TargetCount;
     }
-
-    
 }

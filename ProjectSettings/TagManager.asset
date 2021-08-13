@@ -8,6 +8,7 @@ TagManager:
   - Managers
   - Cubic
   - Data
+  - Target
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class UIM_Timer : MonoBehaviour
 
     Coroutine runTimer;
     float startedTime, remainingTime, idleTime, stoppingTime, totalTime;
+    public Vector3 droppedScale;
 
 
     private void OnEnable()
@@ -51,19 +52,21 @@ public class UIM_Timer : MonoBehaviour
             if (fAmount <= 0.7f && !thirdStarDropped)
             {
                 star3.color = droppedStarColor;
+                star3.transform.localScale = droppedScale;
                 GM_Events.CallEventStarCountChange();
                 thirdStarDropped = true;
             }
-            else if (fAmount <= 0.5f && !secondStarDropped)
+            else if (fAmount <= 0.4f && !secondStarDropped)
             {
                 star2.color = droppedStarColor;
+                star2.transform.localScale = droppedScale;
                 GM_Events.CallEventStarCountChange();
                 secondStarDropped = true;
             }
 
             if (!colorChanged)
             {
-                if (fAmount <= 0.3f)
+                if (fAmount <= 0.2f)
                 {
                     fillImage.color = dangerColor;
                     colorChanged = true;

@@ -49,7 +49,6 @@ public class DataFlow : MonoBehaviour
         dataManager.LoadFromLocal(cubicData.ID);
     }
 
-    // TODO: Oynanan world son açılan değilse yeni dünya açmamalı
     public void OnWin(int starCount)
     {
         CubicData world = cubicDatas[gameData.selectedWorld - 1];
@@ -59,6 +58,7 @@ public class DataFlow : MonoBehaviour
             world.SetStarCounts(gameData.selectedLevel, starCount);
         }
 
+        // Açılan level arttırma ve yeni dünya açma
         if (world.LastOpenedLevel == gameData.selectedLevel && gameData.GetLastOpenedWorld() == gameData.selectedWorld)
         {
             if (world.LastOpenedLevel == world.LevelCount)

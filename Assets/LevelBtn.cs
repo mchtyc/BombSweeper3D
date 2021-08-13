@@ -49,6 +49,7 @@ public class LevelBtn : MonoBehaviour
 
     public void Deactivate()
     {
+        gameObject.GetComponent<Button>().interactable = false;
         this.enabled = false;
     }
 
@@ -56,7 +57,7 @@ public class LevelBtn : MonoBehaviour
     {
         gameData.selectedLevel = level;
 
-        //MM_Enums.SetMenuPage(MenuPage.WorldPage);   // Cubic leri silince burası levelPage de kalmalı ve 
-        mm_Events.CallEventOpenGame();              // oyun oynanıp geri gelince burası direk açılmalı
+        //MM_Enums.SetMenuPage(MenuPage.WorldPage);   // TODO: Cubic leri silince burası levelPage de kalmalı ve 
+        mm_Events.CallEventOpenGame();                // oyun oynanıp geri gelince burası direk açılmalı
     }
 }

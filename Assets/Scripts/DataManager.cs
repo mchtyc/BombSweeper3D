@@ -70,7 +70,6 @@ public class DataManager : MonoBehaviour
 				File.Delete(dataPath);
 				SaveToLocal();
 			}
-			
 		}
 		else
 		{

@@ -65,7 +65,6 @@ public class MUIM_CubicSelection : MonoBehaviour
                 
             yield return null;
 
-
             // Grid level scrollunun en son geçilen levelin butonu en üste olacak şekilede kaydır
             // Butonlar açık olan levele kadar açık sonraki leveller için kapalı olacak
         }
